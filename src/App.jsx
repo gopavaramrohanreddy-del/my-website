@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
   return (
     <div className="app">
       <header className="navbar">
@@ -12,13 +15,49 @@ function App() {
           </div>
         </div>
 
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#courses">Courses</a>
-          <a href="#teachers">Teachers</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <>
+  <button
+    type="button"
+    className="sidebar-toggle"
+    onClick={() => setSidebarOpen(!sidebarOpen)}
+    aria-label={sidebarOpen ? 'Close navigation menu' : 'Open navigation menu'}
+    aria-expanded={sidebarOpen}
+  >
+    {sidebarOpen ? '✕' : '☰'}
+  </button>
+
+  {sidebarOpen && (
+    <button
+      type="button"
+      className="sidebar-backdrop"
+      onClick={() => setSidebarOpen(false)}
+      aria-label="Close navigation menu"
+    />
+  )}
+
+  <aside className={`sidebar ${sidebarOpen ? 'sidebar-open' : ''}`}>
+    <div className="logo">
+      <span className="logo-symbol">♫</span>
+      <div>
+        <h1>Abhinandana</h1>
+        <span>Music Academy</span>
+      </div>
+    </div>
+
+    <nav className="sidebar-nav" aria-label="Main navigation">
+      <a href="#home" onClick={() => setSidebarOpen(false)}>⌂ &nbsp; Home</a>
+      <a href="#about" onClick={() => setSidebarOpen(false)}>♫ &nbsp; About</a>
+      <a href="#courses" onClick={() => setSidebarOpen(false)}>♪ &nbsp; Courses</a>
+      <a href="#teachers" onClick={() => setSidebarOpen(false)}>♬ &nbsp; Teachers</a>
+      <a href="#contact" onClick={() => setSidebarOpen(false)}>✉ &nbsp; Contact</a>
+    </nav>
+
+    <div className="sidebar-footer">
+      <span>♪</span>
+      <p>Music • Tradition • Learning</p>
+    </div>
+  </aside>
+</>
       </header>
 
       <main>
