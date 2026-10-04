@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --maroon: #641b28;
+  --deep-maroon: #3f1019;
+  --burgundy: #7c2635;
+  --gold: #c49a4a;
+  --light-gold: #e1c477;
+  --cream: #f8f1e3;
+  --ivory: #fffdf7;
+  --brown: #35231f;
+  --muted: #765f57;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--brown);
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Navigation */
+
+.navbar {
+  align-items: center;
+  background: var(--ivory);
+  border-bottom: 1px solid rgba(196, 154, 74, 0.3);
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.logo-symbol {
+  align-items: center;
+  background: var(--maroon);
+  border-radius: 50%;
+  color: var(--light-gold);
+  display: flex;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.logo h1 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.logo span:not(.logo-symbol) {
+  color: var(--gold);
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 28px;
+}
+
+.navbar nav a {
+  color: var(--brown);
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.navbar nav a:hover {
+  color: var(--maroon);
+}
+
+/* Hero */
+
+.hero {
+  align-items: center;
+  background:
+    radial-gradient(circle at 80% 30%, rgba(196, 154, 74, 0.18), transparent 30%),
+    linear-gradient(135deg, var(--deep-maroon), var(--maroon));
+  color: var(--white);
+  display: flex;
+  min-height: 650px;
+  overflow: hidden;
+  padding: 80px 10%;
+  position: relative;
+}
+
+.hero::before {
+  border: 1px solid rgba(225, 196, 119, 0.35);
+  border-radius: 50%;
+  content: '';
+  height: 500px;
+  position: absolute;
+  right: -160px;
+  top: 70px;
+  width: 500px;
+}
+
+.hero::after {
+  border: 1px solid rgba(225, 196, 119, 0.18);
+  border-radius: 50%;
+  content: '';
+  height: 650px;
+  position: absolute;
+  right: -235px;
+  top: -5px;
+  width: 650px;
+}
+
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--light-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.hero h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(58px, 8vw, 100px);
+  font-weight: 600;
+  line-height: 0.9;
+}
+
+.hero h2 span {
+  color: var(--light-gold);
+}
+
+.hero-text {
+  color: #f3e7d4;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 30px 0;
+  max-width: 560px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.button {
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 14px 25px;
+  transition: all 0.25s ease;
+}
+
+.button.primary {
+  background: var(--gold);
+  color: var(--deep-maroon);
+}
+
+.button.primary:hover {
+  background: var(--light-gold);
+  transform: translateY(-2px);
+}
+
+.button.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--white);
+}
+
+.button.secondary:hover {
+  background: var(--white);
+  color: var(--maroon);
+}
+
+.hero-decoration {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  position: absolute;
+  right: 12%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+}
+
+.music-note {
+  color: rgba(225, 196, 119, 0.28);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 300px;
+  line-height: 1;
+}
+
+.music-note.small {
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 140px;
+  left: 20px;
+  position: absolute;
+  top: 45px;
+}
+
+/* Sections */
+
+.section {
+  padding: 100px 8%;
+}
+
+.section-heading {
+  margin: 0 auto 55px;
+  max-width: 750px;
+  text-align: center;
+}
+
+.section-heading p {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5vw, 60px);
+  line-height: 1;
+}
+
+/* About */
+
+.about {
+  background: var(--ivory);
+}
+
+.about-content {
+  align-items: center;
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 1.5fr 1fr;
+  margin: auto;
+  max-width: 1050px;
+}
+
+.about-content > div:first-child {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 2;
+}
+
+.about-content > div:first-child p + p {
+  margin-top: 20px;
+}
+
+.experience-card {
+  background: var(--cream);
+  border-left: 4px solid var(--gold);
+  padding: 45px;
+  text-align: center;
+}
+
+.experience-card strong {
+  color: var(--maroon);
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  line-height: 0.8;
+}
+
+.experience-card span {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+/* Courses */
+
+.courses {
+  background: var(--cream);
+}
+
+.course-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: auto;
+  max-width: 1150px;
+}
+
+.course-card {
+  background: var(--ivory);
+  border-bottom: 3px solid transparent;
+  padding: 30px 24px;
+  transition: all 0.25s ease;
+}
+
+.course-card:hover {
+  border-bottom-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(63, 16, 25, 0.08);
+  transform: translateY(-5px);
+}
+
+.course-card > span {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+
+.course-card h3 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Teachers */
+
+.teachers {
+  background: var(--ivory);
+}
+
+.teacher-grid {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  max-width: 1000px;
+}
+
+.teacher-card {
+  border: 1px solid rgba(196, 154, 74, 0.25);
+  padding: 45px;
+}
+
+.teacher-card.featured {
+  background: var(--maroon);
+  color: var(--white);
+}
+
+.teacher-icon {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.teacher-role {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.teacher-card h3 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+.teacher-card.featured h3 {
+  color: var(--white);
+}
+
+.teacher-card > p:not(.teacher-role) {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.teacher-card.featured > p:not(.teacher-role) {
+  color: #f0e2d0;
+}
+
+.teacher-phone {
+  color: var(--maroon);
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.teacher-card.featured .teacher-phone {
+  color: var(--light-gold);
+}
+
+/* Online learning */
+
+.learning {
+  background: var(--deep-maroon);
+  padding-bottom: 110px;
+  padding-top: 110px;
+}
+
+.learning-box {
+  border: 1px solid rgba(225, 196, 119, 0.35);
+  margin: auto;
+  max-width: 850px;
+  padding: 65px;
+  text-align: center;
+}
+
+.learning-box h2 {
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 65px);
+  margin-bottom: 20px;
+}
+
+.learning-box > p:last-child {
+  color: #eadcc8;
+  line-height: 1.9;
+  margin: auto;
+  max-width: 650px;
+}
+
+/* Achievements */
+
+.achievements {
+  background: var(--cream);
+}
+
+.achievement-grid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  max-width: 900px;
+}
+
+.achievement-grid div {
+  background: var(--ivory);
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.achievement-grid strong {
+  color: var(--maroon);
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 65px;
+}
+
+.achievement-grid span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Contact */
+
+.contact {
+  background: var(--ivory);
+}
+
+.contact-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1.1fr 0.9fr;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.contact-info {
+  color: var(--muted);
+  line-height: 2;
+}
+
+.contact-info h3 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.contact-info p {
+  margin-bottom: 12px;
+}
+
+.contact-info a {
+  color: var(--maroon);
+  font-weight: 600;
+}
+
+.contact-card {
+  background: var(--cream);
+  border-top: 4px solid var(--gold);
+  padding: 40px;
+}
+
+.contact-card h3 {
+  color: var(--maroon);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.contact-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+/* Footer */
+
+footer {
+  background: var(--deep-maroon);
+  color: #dfd0bb;
+  padding: 45px 8%;
+  text-align: center;
+}
+
+.footer-logo {
+  color: var(--light-gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+footer p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+footer small {
+  color: #a99582;
+  font-size: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 5%;
+  }
+
+  .navbar nav {
+    gap: 15px;
+  }
+
+  .hero {
+    padding: 80px 7%;
+  }
+
+  .hero-decoration {
+    opacity: 0.35;
+    right: 0;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-content,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar nav {
+    flex-wrap: wrap;
+  }
+
+  .navbar nav a {
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero h2 {
+    font-size: 58px;
+  }
+
+  .hero-decoration {
+    display: none;
+  }
+
+  .section {
+    padding: 70px 6%;
+  }
+
+  .course-grid,
+  .teacher-grid,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-card,
+  .learning-box {
+    padding: 35px 25px;
+  }
+
+  .experience-card {
+    padding: 35px;
+  }
+}
