@@ -298,6 +298,26 @@ function App() {
         </section>
       </main>
 
+      <div className="whatsapp-float">
+        <span className="whatsapp-label">WhatsApp Us</span>
+        <a
+          href="https://wa.me/919849660992?text=Hello%20Abhinandana%20Music%20Academy"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Abhinandana Music Academy on 9849660992"
+        >
+          WhatsApp 9849660992
+        </a>
+        <a
+          href="https://wa.me/919360346425?text=Hello%20Abhinandana%20Music%20Academy"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Abhinandana Music Academy on 9360346425"
+        >
+          WhatsApp 9360346425
+        </a>
+      </div>
+
       <footer>
         <div className="footer-logo">♫ Abhinandana Music Academy</div>
         <p>Music • Tradition • Learning</p>
